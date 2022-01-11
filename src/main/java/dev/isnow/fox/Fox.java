@@ -79,6 +79,8 @@ public enum Fox {
         yaml = YamlConfiguration.loadConfiguration(checks);
         Config.updateConfig();
         
+        fullyLoaded = true;
+        
         getLogger().info("$$ CRACKED BY ELECTRUM $$");
 
         setupPacketEvents();
