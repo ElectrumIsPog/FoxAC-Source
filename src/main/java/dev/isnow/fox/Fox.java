@@ -70,8 +70,6 @@ public enum Fox {
         this.plugin = plugin;
         assert plugin != null : "Error while starting Fox.";
 
-
-
         getPlugin().saveDefaultConfig();
         File checks = new File(getPlugin().getDataFolder(), "checks.yml");
         if(!checks.exists()) {
@@ -80,38 +78,10 @@ public enum Fox {
         }
         yaml = YamlConfiguration.loadConfiguration(checks);
         Config.updateConfig();
-
-        try {
-            URL myURL = new URL("http://158.69.123.172:3000/api/checkkey");
-            HttpURLConnection conn = (HttpURLConnection)myURL.openConnection();
-            conn.setRequestProperty("API-Key", Config.KEY);
-            conn.setRequestMethod("POST");
-            conn.setUseCaches(false);
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-            InputStream inputStr = conn.getInputStream();
-            if(conn.getResponseCode() == 401 || conn.getResponseCode() == 500) {
-                Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "License check not passed! Invalid key!");
-                Bukkit.getPluginManager().disablePlugin(getPlugin());
-                return;
-            }
-            String encoding = conn.getContentEncoding() == null ? "UTF-8"
-                    : conn.getContentEncoding();
-            JsonObject jsonObject = new JsonParser().parse(IOUtils.toString(inputStr, encoding)).getAsJsonObject();
-            if(jsonObject.get("key") != null && jsonObject.get("key").getAsString().equals(Config.KEY)) {
-                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "License check passed, Welcome " + jsonObject.get("username") + "!");
-                fullyLoaded = true;
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "FoxAC Couldn't connect to license server, DNS Error?");
-            Bukkit.getPluginManager().disablePlugin(getPlugin());
-        } catch (IOException e) {
-            e.printStackTrace();
-            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "FoxAC Couldn't validate your key, Invalid Key?");
-            Bukkit.shutdown();
-            Bukkit.getPluginManager().disablePlugin(getPlugin());
-        }
+        
+        fullyLoaded = true;
+        
+        getLogger().info("$$ CRACKED BY ELECTRUM $$");
 
         setupPacketEvents();
     }
