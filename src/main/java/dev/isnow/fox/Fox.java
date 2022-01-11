@@ -84,7 +84,6 @@ public enum Fox {
         try {
             Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "License check passed, Welcome " + jsonObject.get("username") + "!");
             fullyLoaded = true;
-            }
         } catch (MalformedURLException e) {
             e.printStackTrace();
             Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "FoxAC Couldn't connect to license server, DNS Error?");
