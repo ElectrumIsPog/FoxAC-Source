@@ -1,0 +1,30 @@
+name: Fox
+version: 0.1-ALPHA
+main: dev.isnow.fox.FoxPlugin
+authors: ["5170", RealTrippy]
+description: Fox AntiCheat
+
+commands:
+  fox:
+    description: Commands for Fox Anticheat.
+    usage: /fox
+    aliases: [foxac, fac, fag]
+    permission: fox.commands
+  alerts:
+    description: toggle alerts
+    usage: /alerts
+    aliases:
+      - notify
+    permission: fox.alerts
+  vanish:
+    description: Become invisable
+    usage: /vanish [Player]
+    aliases:
+      - v
+      - becomeinvisable
+    permission: fox.vanish
+softdepend:
+  - ProtocolLib
+  - ProtocolSupport
+  - ViaVersion
+  - Geyser-Spigot

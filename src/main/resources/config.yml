@@ -1,0 +1,79 @@
+#──────────────────────────────────────────────────
+#─██████████████─██████████████─████████──████████─
+#─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░██──██░░░░██─
+#─██░░██████████─██░░██████░░██─████░░██──██░░████─
+#─██░░██─────────██░░██──██░░██───██░░░░██░░░░██───
+#─██░░██████████─██░░██──██░░██───████░░░░░░████───
+#─██░░░░░░░░░░██─██░░██──██░░██─────██░░░░░░██─────
+#─██░░██████████─██░░██──██░░██───████░░░░░░████───
+#─██░░██─────────██░░██──██░░██───██░░░░██░░░░██───
+#─██░░██─────────██░░██████░░██─████░░██──██░░████─
+#─██░░██─────────██░░░░░░░░░░██─██░░░░██──██░░░░██─
+#─██████─────────██████████████─████████──████████─
+#──────────────────────────────────────────────────
+
+api:
+  key: 'foxac_flk4g93hexss'
+
+settings:
+  api: false
+  vpn: true
+
+clients:
+  enabled: true
+  sensitive: true
+  blocked:
+    - 'Vanilla'
+
+ghost-block:
+  enabled: true
+  mode: 'FOX'
+  strict: true
+  max-ms: 450
+
+alerts:
+  message: '&cFox &7» &c%player% &7failed &c%check% Check %type% &7x%vl%'
+  click-command: '/teleport %player%'
+  clear-violations-delay: 15
+  console: true
+  log: false
+  log-format: ''
+
+discord:
+  enabled: false
+  ban-message: false
+  name: 'Fox AntiCheat'
+  image: 'https://ibb.co/5GcBYB9'
+  url: 'https://discordapp.com/api/webhooks/925820999075774515/G0BVuFnckLvEkVA3ymKR13xWm_v_dNWyUzycQn196m7WwBFRda9Lo5kLSJ-DuokhoEva'
+  banurl: 'https://discordapp.com/api/webhooks/925820999075774515/G0BVuFnckLvEkVA3ymKR13xWm_v_dNWyUzycQn196m7WwBFRda9Lo5kLSJ-DuokhoEva'
+
+messages:
+  prefix: '&7&l[&cFox&7&l] &d'
+  alerts-on: '&7&l[&cFox&7&l] &dAlerts toggled &aOn'
+  alerts-off: '&7&l[&cFox&7&l] &dAlerts toggled &cOff'
+  vpn-kick: '&7&l[&cFox&7&l] &cVpns are blacklisted on this server!'
+  payload-kick: '&7&l[&cFox&7&l] &cYou were kicked for invalid payloads!'
+  anticrash-kick: '&7&l[&cFox&7&l] &cYou were kicked for crasher/exploits!'
+  antiexploit-alert: '&c&lFox AntiExploit&7» &c%player% &7failed &c%check% &7&l[&d%info%&7&l]'
+  banning: '&7&l[&cFox&7&l] &dBanning %player%'
+  join-message: '&7&l[&cFox&7&l] &7%player% &djoined with &6%client%'
+  client-kick: '&7&l[&cFox&7&l] &cThis client isnt supported!'
+  vanish-on: '&7&l[&cFox&7&l] &dVanish toggled &aOn'
+  vanish-off: '&7&l[&cFox&7&l] &dVanish toggled &cOff'
+  kb-test: '&7&l[&cFox&7&l] &dYou just launched &c%player%'
+  scare-cmd: '&7&l[&cFox&7&l] &dYou just scared &c%player%'
+
+bans:
+  enabled: false
+  timer: false
+  time: 3
+  first-commands:
+    - 'kick %player% &7&l[&cFox&7&l] &cCheating'
+    - ''
+  timer-commands:
+    - ''
+    - ''
+
+broadcast:
+  enabled: true
+  message: '%nl%&7&l[&cFox&7&l] &7%player% &cWas punished for &c&lCheating!%nl%'
